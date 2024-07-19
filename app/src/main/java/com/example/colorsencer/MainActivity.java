@@ -65,30 +65,29 @@ public class MainActivity extends AppCompatActivity {
                 int blueValue = Color.blue(currentColor);
                 String rgbValue = "RGB: " + redValue + ", " + greenValue + ", " + blueValue;
 
-                // 使用计数器获取唯一ID
+                // 使用計數器獲取唯一ID
                 uniqueId++;
 
-                // 创建 ColorData 对象并添加到列表中
+                // 創建 ColorData 並添加到列表中
                 ColorData colorData = new ColorData(uniqueId, currentColor, rgbValue);
                 colorList.add(colorData);
 
                 try {
                     colorDBHelper.addColor(currentColor, rgbValue);
                     loadColorsFromDatabase();
-                    adapter.notifyDataSetChanged(); // 通知列表数据发生了改变
+                    adapter.notifyDataSetChanged(); // 通知列表數據發生變化
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.e("Database", "Error writing to database: " + e.getMessage());
                 }
             }
         });
-        // 使用Handler实现每3秒更新一次
+        // 使用Handler實現每3秒更新一次
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // 再次执行获取颜色数据的操作
-                // 你可以在这里重新发起网络请求获取最新的颜色数据
+                // 執行獲取顏色數據的動作
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 reader.close();
 
-                                // 在UI线程中更新UI元素
+                                // 在UI中更新UI元素
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                                             int blueValue = Integer.parseInt(jsonArray.getString(2));
                                             int color = Color.rgb(redValue, greenValue, blueValue);
 
-                                            // 设置TextView的背景色
+                                            // 設置TextView的背景色
                                             textView.setBackgroundColor(color);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             // Add colors from database to the colorList
             if (colorsFromDB != null && !colorsFromDB.isEmpty()) {
                 colorList.addAll(colorsFromDB);
-                adapter.notifyDataSetChanged(); // 通知列表数据发生了改变
+                adapter.notifyDataSetChanged(); // 通知列表數據發生變化
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -171,13 +170,13 @@ public class MainActivity extends AppCompatActivity {
             int mixedGreen = data.getIntExtra("mixedGreen", 0);
             int mixedBlue = data.getIntExtra("mixedBlue", 0);
 
-            // 使用計數器获取唯一ID
+            // 使用計數器獲取唯一ID
             uniqueId++;
 
-            // 创建 ColorData 对象并添加到列表中
+            // 創建 ColorData 並添加到列表中
             ColorData colorData = new ColorData(mixedColor, mixedRed, mixedGreen, mixedBlue);
             colorList.add(colorData);
-            adapter.notifyDataSetChanged(); // 通知列表数据发生了改变
+            adapter.notifyDataSetChanged(); // 通知列表數據發生變化
 
 
         }
