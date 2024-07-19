@@ -27,10 +27,8 @@
         <activity
             android:name=".ColorPickerActivity"
             android:label="Color Picker Activity">
-            <!-- 可以添加必要的其他屬性或配置 -->
         </activity>
         <activity android:name=".ColorPreviewActivity">
-            <!-- 可选的其他属性 -->
         </activity>
     </application>
 
