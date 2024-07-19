@@ -41,7 +41,7 @@ public class ColorListAdapter extends ArrayAdapter<ColorData> {
 
             TextView rgbTextView = colorView.findViewById(R.id.colorText);
             String rgbValue = colorData.getRgbValue();
-            Log.d("ColorListAdapter", "RGB Value from ColorData: " + rgbValue); // 添加这行日志来检查从 ColorData 中获取的 RGB 值是否正确
+            Log.d("ColorListAdapter", "RGB Value from ColorData: " + rgbValue); 
             rgbTextView.setText(rgbValue);
 
             // 找到删除按钮
@@ -63,13 +63,13 @@ public class ColorListAdapter extends ArrayAdapter<ColorData> {
     private void removeColorItem(int position) {
         ColorData colorToDelete = getItem(position);
 
-        // 从数据库中删除颜色数据
+        //從數據庫中移除顏色數據
         if (colorDBHelper != null && colorToDelete != null) {
-            int idToDelete = colorToDelete.getId(); // 获取用于删除的标识符
-            colorDBHelper.deleteColor(idToDelete); // 传入标识符进行删除
+            int idToDelete = colorToDelete.getId(); 
+            colorDBHelper.deleteColor(idToDelete); 
         }
 
-        // 从列表中移除颜色项
+        //移除列表顏色項
         remove(colorToDelete);
         notifyDataSetChanged();
     }
