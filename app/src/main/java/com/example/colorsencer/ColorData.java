@@ -17,8 +17,8 @@ public class ColorData implements Parcelable{
     public ColorData(int id, int colorValue, String rgbValue) {
         this.id = id;
         this.colorValue = colorValue;
-        this.color = colorValue; // 设置 color 变量的值为传入的 colorValue
-        this.isSelected = false; // 默認未選擇
+        this.color = colorValue; 
+        this.isSelected = false; 
 
         // 提取 RGB 值
         int redValue = Color.red(colorValue);
@@ -26,7 +26,7 @@ public class ColorData implements Parcelable{
         int blueValue = Color.blue(colorValue);
         Log.d("ColorData", "Red: " + redValue + ", Green: " + greenValue + ", Blue: " + blueValue);
         this.rgbValue = "RGB: " + redValue + ", " + greenValue + ", " + blueValue;
-        Log.d("ColorData", "RGB Value: " + this.rgbValue); // 添加这行日志来检查 RGB 值是否正确设置
+        Log.d("ColorData", "RGB Value: " + this.rgbValue); 
 
     }
     public ColorData(int colorValue, int mixedRed, int mixedGreen, int mixedBlue) {
@@ -67,7 +67,7 @@ public class ColorData implements Parcelable{
         return color;
     }
     public  int getId() {
-        // 返回用于删除的唯一标识符，可能是行的 ID 或者其他独特的标识符
+        
         return id;
     }
     public boolean isSelected() {
