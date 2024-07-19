@@ -80,13 +80,13 @@ public class ColorPickerActivity extends AppCompatActivity {
             int mixedGreen = data.getIntExtra("mixedGreen", 0);
             int mixedBlue = data.getIntExtra("mixedBlue", 0);
 
-            // 使用計數器获取唯一ID
+            // 使用計數器獲取唯一ID
             uniqueId++;
 
-            // 创建 ColorData 对象并添加到列表中
+            // 創建 ColorData 並添加到列表中
             ColorData colorData = new ColorData(uniqueId, mixedColor, "RGB: " + mixedRed + ", " + mixedGreen + ", " + mixedBlue);
             colorList.add(colorData);
-            adapter.notifyDataSetChanged(); // 通知列表数据发生了改变
+            adapter.notifyDataSetChanged(); // 通知列表數據發生變化
 
             Intent updateIntent = new Intent();
             updateIntent.putParcelableArrayListExtra("updatedColors", new ArrayList<>(colorList));
