@@ -2,7 +2,7 @@
 <color_square_shape xmlns:android="http://schemas.android.com/apk/res/android">
     <shape xmlns:android="http://schemas.android.com/apk/res/android"
         android:shape="rectangle">
-        <solid android:color="#FFFFFF"/> <!-- 調整顏色為你想要的 -->
-        <size android:width="50dp" android:height="50dp"/> <!-- 調整大小為你想要的 -->
+        <solid android:color="#FFFFFF"/> 
+        <size android:width="50dp" android:height="50dp"/> 
     </shape>
 </color_square_shape>
